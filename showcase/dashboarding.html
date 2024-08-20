@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>External</title>
+  <link rel="stylesheet" href="../style.css" />
+
+  <style>
+  #header {
+   top: 0;
+   width: 100%;
+   margin: 0;
+   background: url(images/logo2.png) no-repeat;
+   height: 45vh;
+   left: 0px;
+   margin-left: 0;   
+  }
+
+  #footer {
+   top: 0;
+   bottom: 0;
+   width: 100%;
+   margin: 0;
+   max-height: 50px;
+   left: 0px;
+   margin-left: 0;   
+  }
+
+  #turquoise {
+    color: turquoise;
+    font-size: 2rem;
+    font-family: Lobster;
+  }
+
+  #sizing {
+    font-size: 2rem;
+  }
+
+  .container {
+      padding: 10px;
+      display: flex;
+      justify-content: space-evenly;
+  }
+
+  .img_center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+  }
+
+  .fixed-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff; /* Set your desired background color */
+  z-index: 1000; /* Set a high z-index to ensure it appears above other elements */
+}
+
+.dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* Style for the dropdown content (hidden by default) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: lightgrey;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        /* Style for the dropdown items */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Change color on hover */
+        .dropdown-content a:hover {
+            background-color: turquoise;
+        }
+
+        /* Show the dropdown content when hovering over the dropdown container */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+      
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville&family=Lobster&family=Roboto:ital@1&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <object data="header.html" id="header"></object>
+
+  <hr color="turquoise" size="5">
+  <div class="container">
+    <a href="../index.html" id='turquoise' style="text-decoration:none">About Me</a>
+    <div class="dropdown">
+      <a id='turquoise' style="text-decoration:none">Showcase</a>
+  
+      <!-- The dropdown content -->
+      <div class="dropdown-content">
+          <a href="dashboarding.html">Tableau - Dashboarding</a>
+          <a href="storyboarding.html">Tableau - Storyboarding</a>
+          <a href="forecasting_arima.html">Python - ARIMA Forecasting</a>
+          <a href="SQL.html">SQL</a>
+      </div>
+    </div>
+    
+      <a href="../shop.html" id='turquoise' style="text-decoration:none">Shop</a>
+  </div>
+  <hr color="turquoise" size="5">
+
+
+  <h1>Portfolio</h1>
+  <br>
+
+  <h3>1st Jan 2024</h3>
+  <h1>Dashboarding</h1>
+  <p> The sample dashboard below (built on Tableau) is based on a poker player's online data and is meant to showcase the player's playstyle based on their hand history.
+    To navigate, kindly use the filters at the right pane to select eg. the board flop and the card's dropdown menu to analyse the player's hands. </p>
+
+    <hr/>
+    <div style="width:auto; height:1000px;">  
+        <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"> 
+        
+        </script>  
+        
+        <tableau-viz id="tableauViz" src="https://public.tableau.com/shared/KDYJM2CZM?:display_count=n&:origin=viz_share_link" hide-tabs>  
+        </tableau-viz>  
+    </div>
+    <br>
+    <a href="https://www.kaggle.com/datasets/murilogmamaral/online-poker-games">Data Source: Kaggle</a> 
+    
+    <hr/>
+
+      <p>The above illustrates how organization and structure can be use to logically display the flow of the game from left to right, pre-flop to flop, turn and then river. 
+        With the use of select filters from the right pane, the dashboard is also able to allow some deepdive anaylsis into particular situations.
+      </p>
+
+      <div class="img_center">
+        <img src="../assets/images/poker_img.png" height="400"/>
+      </div>
+      
+      <p>The visualization is also aided with the use of a few colors and shapes to help with insights into the player's decisions (eg. bet/raise/fold) in different hands and different board states (eg. flop/turn/river).
+        This demonstration showcases how seemingly abstract data with >100k rows in tabular format can be quickly converted to simple visuals that can facilitate better understanding of the underlying source.
+      </p>
+      
+
+    
+
+
+
+    <div class="img_center">
+      <img src="../assets/images/poker_excel.png" height="400"/>
+    </div>
+    
+    <hr/>
+
+
+
+
+    <object data="footer.html" id="footer"></object>
+
+</body>
+
+</html>
