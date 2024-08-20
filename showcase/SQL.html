@@ -126,45 +126,81 @@
   <h1>Portfolio</h1>
   <br>
 
-  <h3>1st Jan 2024</h3>
-  <h1>Dashboarding</h1>
-  <p> The sample dashboard below (built on Tableau) is based on a poker player's online data and is meant to showcase the player's playstyle based on their hand history.
-    To navigate, kindly use the filters at the right pane to select eg. the board flop and the card's dropdown menu to analyse the player's hands. </p>
+  <h3>1st Jun 2024</h3>
+  <h1>SQL</h1>
+  <p> This working example below aims to gain useful heuristics through developing some insights from a new dataset. 
+    We will be using New York's 2022 Taxi Trips data from Google's public bigquery dataset for this illustration.  </p>
 
-    <hr/>
-    <div style="width:auto; height:1000px;">  
-        <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"> 
-        
-        </script>  
-        
-        <tableau-viz id="tableauViz" src="https://public.tableau.com/shared/KDYJM2CZM?:display_count=n&:origin=viz_share_link" hide-tabs>  
-        </tableau-viz>  
-    </div>
-    <br>
-    <a href="https://www.kaggle.com/datasets/murilogmamaral/online-poker-games">Data Source: Kaggle</a> 
-    
-    <hr/>
 
-      <p>The above illustrates how organization and structure can be use to logically display the flow of the game from left to right, pre-flop to flop, turn and then river. 
-        With the use of select filters from the right pane, the dashboard is also able to allow some deepdive anaylsis into particular situations.
+      <div class="img_center">
+        <img src="../assets/images/sql_nyc_taxi_2022.jpg" height="450"/>
+      </div>
+
+      <p> 
+        <b>Perhaps some questions on this dataset that is of interest would be:</b>
+        <br> 1. What were the most common trip distance taken by New Yorkers in a public taxi?
+        <br> 2. Are the fares charged equal across trip distances?
+        <br> 3. Which was the most popular pickup spot and destination?  
+      </p>
+
+      <p>
+        Lets start of with some statistics of the trips data:
       </p>
 
       <div class="img_center">
-        <img src="../assets/images/poker_img.png" height="400"/>
+        <img src="../assets/images/sql_stats.jpg" height="200"/>
       </div>
-      
-      <p>The visualization is also aided with the use of a few colors and shapes to help with insights into the player's decisions (eg. bet/raise/fold) in different hands and different board states (eg. flop/turn/river).
-        This demonstration showcases how seemingly abstract data with >100k rows in tabular format can be quickly converted to simple visuals that can facilitate better understanding of the underlying source.
-      </p>
-      
+      <br>
+      <div class="img_center">
+        <img src="../assets/images/sql_max.jpg" height="150"/>
+      </div>
 
+      <p>
+        It would appear that there are extreme outlier values that are potential erroneous entries in the data as it is illogical for a taxi ride to be >300k miles but only for a fare of $12.11.
+        Therefore, to simplify things, we will restrict the analysis of this dataset to be within a chosen arbitrary range of between 1 and 50 miles.
+      </p>
+
+      <div class="img_center">
+        <img src="../assets/images/sql_popular_trips.jpg" height="300"/>
+      </div>
+
+      <p>
+        <b>Question (1)</b>
+        <br>
+        From the bucketed data above, it seems taxi trips between 1 and 10 miles are the most popular in New York 2022.
+      </p>
+
+      <br>
+      
+      <p>
+        <b>Question (2)</b>
+        <br>
+        However, from the data below, not all trips are charged equally on a per mile basis as trips between 1 to 10 miles incur the highest fare per mile at an average of $5.1 compared to other longer trip distances.
+      </p>
+      <div class="img_center">
+        <img src="../assets/images/sql_fares.jpg" height="250"/>
+      </div>
+
+      <br>
+      
+      <p>
+        <b>Question (3)</b>
+        <br>
+        To conclude the 3rd data question, to find the most popular pickup/destination zones, we join the main dataset with the zone name data table below. The results shows that the most frequent pickup spot was JFK airport; 
+      </p>
+      <div class="img_center">
+        <img src="../assets/images/sql_most_pickup.jpg" height="250"/>
+      </div>
+      <br>
+      <p>and the most popular destination was Upper East Side North.</p>
+      <div class="img_center">
+        <img src="../assets/images/sql_most_destination.jpg" height="250"/>
+      </div>
     
 
 
 
-    <div class="img_center">
-      <img src="../assets/images/poker_excel.png" height="400"/>
-    </div>
+  
     
     <hr/>
 
