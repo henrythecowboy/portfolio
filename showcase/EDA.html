@@ -22,7 +22,7 @@
    bottom: 0;
    width: 100%;
    margin: 0;
-   max-height: 40px;
+   max-height: 50px;
    left: 0px;
    margin-left: 0;   
   }
@@ -128,63 +128,21 @@
   <br>
 
   
-  <h1>Storyboarding</h1>
-  <p> The example below is based on 2 different datasets with some information on SG properties and meant to demonstrate 
-    how storyboarding can be used to showcase any narrative from the underlying data.
-    Kindly use the panes at the top (left to right) to navigate between the different "stories". </p>
+  <h1>Exploratory Data Analysis (using Python)</h1>
+  <p> The illustration below showcases some fundamentals on how to clean a dataset and generate some insights for analysis using python. The dataset used is retail sales in several prominent Istanbul shopping malls.  </p>
 
-    <hr/>
-    <div style="width:auto; height:1000px;">  
-        <script type="module" src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.js"> 
-        
-        </script>  
-        
-        <tableau-viz id="tableauViz" src="https://public.tableau.com/views/cowboy1/Story1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link" hide-tabs>  
-        </tableau-viz>  
-    </div>
-    <br>
-    <a href="https://www.kaggle.com/code/rebegin/the-singapore-housing-dataset">Source 1: Kaggle</a>
-    <br>
-    <a href="https://beta.data.gov.sg/collections/189/datasets/d_8b84c4ee58e3cfc0ece0d773c8ca6abc/view">Source 2: Data.gov.sg</a>    
+
+  <iframe src="https://nbviewer.org/github/henrythecowboy/EDA/blob/main/Exploratory_Data_Analysis.ipynb" 
+  width="100%" 
+  height="800px" 
+  style="border:none;">
+  </iframe>    
+
     
     <hr/>
 
-      <p>The first pane on the left utilizes a geomap to display the number of reviews for each town.
-        Combined with the sizing of each circle, bigger representing larger number of reviews, gives the insight on southeast region being more popular 
-        having a concentration of large circles, according to this sample survey.
-      </p>
-
-      <div class="img_center">
-        <img src="../assets/images/property_img1.png" height="400"/>
-      </div>
-      
-      <p>Moving to the second pane, the chart displays the average resale value of HDB properties across various towns.
-        The takeaway here shows that "popular" locations are not necessarily indicative of higher HDB resale prices and illustrates how 
-        storyboarding can be put side by side to showcase the narrative on the underlying data.
-      </p>
-      
-      <div class="img_center">
-        <img src="../assets/images/property_img2.png" height="400"/>
-      </div>
-
-      <p>The third and final pane charts the average HDB resale value (squares) against the average remaining lease (line chart).
-        It can be observed that the line and squares do not converge hence it would seem that the number of years remaining in the lease 
-        has little correlation with resale value.
-      </p>
-      
-      <div class="img_center">
-        <img src="../assets/images/property_img3.png" height="400"/>
-      </div>
-
-      <p> The main takeaway is that storyboarding allows users to create a compelling and interactive narrative
-        where audiences can be guided through the data analysis process, emphasizing key findings and insights. 
-      </p>
 
 
-    
-    
-    <hr/>
-    
 
     <object data="footer.html" id="footer"></object>
 
