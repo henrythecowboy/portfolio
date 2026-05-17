@@ -32,9 +32,11 @@
 <text x="50" y="140.14090349823994" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">350k</text>
 <path d="M60.0,218.2 L125.5,221.7 L190.9,218.9 L256.4,197.1 L321.8,179.1 L387.3,225.5 L452.7,228.5 L518.2,227.9 L583.6,200.0 L649.1,216.3 L714.5,218.0 L780.0,215.7" fill="none" stroke="#129c9a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 <circle cx="60.0" cy="218.2" r="5" fill="#129c9a"/>
-<text x="60.0" y="208.21893564336722" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Apr 2025</text>
+<text x="60.0" y="350" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Apr</text>
 <circle cx="780.0" cy="215.7" r="5" fill="#129c9a"/>
-<text x="780.0" y="205.71992733440354" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Mar 2026</text>
-<text x="60" y="350" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="start">Last 12 months synthetic destination visitors</text>
-<text x="780" y="350" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">Monthly visitors</text>
+<text x="256.4" y="350" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Jul</text>
+<text x="452.7" y="350" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Oct</text>
+<text x="649.1" y="350" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Jan</text>
+<text x="420" y="368" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">12 months synthetic destination visitors</text>
+<text x="18" y="242" transform="rotate(-90 18 242)" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Monthly visitors</text>
 </svg>
