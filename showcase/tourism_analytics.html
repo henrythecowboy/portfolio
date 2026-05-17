@@ -32,8 +32,11 @@
   figure { margin:0; background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:10px; }
   figure img { display:block; width:100%; height:auto; }
   .story { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px 22px; }
-  .callout { margin-top:14px; background:#eef7f7; border-left:4px solid var(--teal); border-radius:8px; padding:14px 16px; }
-  .callout strong { display:block; margin-bottom:6px; font-size:12px; text-transform:uppercase; color:var(--teal); letter-spacing:.04em; }
+  .callout { margin-top:14px; background:#eef7f7; border-left:4px solid var(--teal); border-radius:8px; padding:14px 16px; font-size:13px; font-style:italic; color:var(--muted); }
+  .callout strong { display:block; margin-bottom:8px; font-size:12px; text-transform:uppercase; color:var(--teal); letter-spacing:.04em; font-style:normal; }
+  .callout ul { margin:0; padding-left:18px; }
+  .callout li { margin:0 0 6px; line-height:1.5; }
+  .callout li:last-child { margin-bottom:0; }
   table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; }
   th, td { text-align:left; vertical-align:top; padding:12px; border-bottom:1px solid var(--line); font-size:14px; line-height:1.45; }
   th { background:#edf2f7; font-size:12px; text-transform:uppercase; color:var(--muted); }
@@ -107,8 +110,18 @@
       <p>The destination layer is synthetic by design, because attraction-level revenue, guest satisfaction and campaign ROI are not public. It creates a realistic management view that links public tourism demand to simulated destination operations.</p>
       <div class="callout">
         <strong>Model Assumptions</strong>
-        <p>This synthetic layer is anchored to official monthly Singapore visitor arrivals and assumes the destination captures 12.5% to 15.5% of inbound demand, with seasonal multipliers of 1.10 in July, August and December, 1.04 in March, June and November, and 0.96 otherwise; tourist mix starts at 48% and rises by up to 13 percentage points in stronger months, tourist spend is modeled at 88 to 112 per visit versus 42 to 58 for locals, campaign spend at 180,000 to 360,000 with a 1.45 peak-period uplift, campaign ROI at 1.8x to 4.4x with a 1.18 peak uplift, and guest experience around an NPS mean of 52 and negative feedback mean of 18%, with crowding pressure reducing NPS and raising complaints above a median-demand threshold.</p>
+        <ul>
+          <li><strong>Demand anchor:</strong> Based on official monthly Singapore international visitor arrivals; the destination is assumed to capture 12.5% to 15.5% of inbound demand.</li>
+          <li><strong>Seasonality:</strong> Capture is adjusted by 1.10x in Jul/Aug/Dec, 1.04x in Mar/Jun/Nov, and 0.96x in other months.</li>
+          <li><strong>Visitor mix:</strong> Tourist share starts at 48% and rises in stronger-demand months, producing about 58% tourist mix in the latest 12-month view.</li>
+          <li><strong>Revenue model:</strong> Each tourist visit = 100 and each local visit = 50, split into tourist: 30 attractions / 35 F&amp;B / 25 retail / 10 events, and local: 10 attractions / 25 F&amp;B / 10 retail / 5 events.</li>
+          <li><strong>Campaign model:</strong> Monthly campaign spend is assumed at 100k-200k, with a 1.25x uplift in selected peak months; campaign ROI is modeled at 2.0x-3.0x.</li>
+          <li><strong>Guest experience model:</strong> NPS starts from a baseline of 50 and negative feedback from 20%, both with modest month-to-month variation and crowding pressure applied in higher-volume months.</li>
+          <li><strong>Complaint themes:</strong> Negative feedback is split into transport, crowding, service / queueing, and wayfinding / facilities to simulate operational issue tracking.</li>
+        </ul>
       </div>
+      <p>The latest 12-month dashboard is designed to be easy to audit: visitor volume comes from the public Singapore arrivals base, revenue comes from rounded spend-per-visit assumptions, campaign performance comes from explicit spend and ROI assumptions, and guest experience is broken into transport, crowding, service/queueing, and wayfinding/facilities themes.</p>
+      <p>For the latest modeled 12-month period, the destination captures about 2.44m visits, made up of roughly 1.42m tourist visits and 1.03m local visits. Applying the rounded spend assumptions gives about 193m in destination revenue: tourist visits contribute 100 each and local visits 50 each, with that spend allocated across attractions, F&amp;B, retail and events. The same period also produces an aggregate campaign ROI of about 2.5x and an average NPS of 50, with negative feedback averaging 22%.</p>
       <div class="grid">
         <figure><img src="tourism_analytics_assets/destination_dashboard.svg" alt="Synthetic destination dashboard"></figure>
         <figure><img src="tourism_analytics_assets/guest_experience.svg" alt="Synthetic guest experience early-warning chart"></figure>
@@ -120,7 +133,7 @@
       <table>
         <thead><tr><th>Management action</th><th>Evidence from analysis</th><th>How SDC could use it</th><th>Metric to monitor</th></tr></thead>
         <tbody><tr><td>Prioritize market-specific activation</td><td>China, Indonesia, Malaysia, Australia and India account for the largest share of arrivals.</td><td>Build source-market views for campaign planning, language localization, travel-trade partnerships and visitor-mix monitoring.</td><td>Visitors by source market, campaign ROI, revenue per visitor</td></tr>
-<tr><td>Separate volume recovery from value recovery</td><td>Hotel room revenue has recovered faster than visitor arrivals.</td><td>Track whether destination visitors are converting into higher-yield attraction, F&B, retail and event spend rather than only measuring footfall.</td><td>Revenue per visitor, average spend, business-unit revenue mix</td></tr>
+<tr><td>Separate volume recovery from value recovery</td><td>Hotel room revenue has recovered faster than visitor arrivals.</td><td>Track whether destination visitors are converting into higher-yield attraction, F&amp;B, retail and event spend rather than only measuring footfall.</td><td>Revenue per visitor, average spend, business-unit revenue mix</td></tr>
 <tr><td>Use recovery gaps as a growth pipeline</td><td>Japan, Germany and Taiwan show positive growth but remain below the 2019 baseline.</td><td>Test tactical campaigns, airline/travel-agent partnerships and event bundles for under-recovered but improving markets.</td><td>Recovery vs 2019, YoY growth, campaign bookings</td></tr>
 <tr><td>Protect experience during peak demand</td><td>Synthetic guest-experience modeling links high visitorship to crowding and transport complaint pressure.</td><td>Pair demand forecasts with transport nudges, crowd-level dashboards, staffing plans and peak-period communication.</td><td>NPS, negative feedback %, crowding/transport complaints</td></tr></tbody>
       </table>
