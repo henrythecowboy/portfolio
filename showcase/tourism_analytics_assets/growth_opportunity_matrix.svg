@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 380" role="img">
+  <title>Growth opportunity matrix</title>
+  <rect width="840" height="380" rx="12" fill="#ffffff"/>
+  <text x="36" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#17202a" text-anchor="start">Growth opportunity matrix</text>
+<text x="36" y="54" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#68737d" text-anchor="start">Markets above the horizontal line are growing; markets left of 100% are still below 2019 baseline.</text>
+<line x1="90" y1="74.0" x2="730" y2="74.0" stroke="#d8dee5" stroke-width="1"/>
+<line x1="90" y1="135.2" x2="730" y2="135.2" stroke="#d8dee5" stroke-width="1"/>
+<line x1="90" y1="196.5" x2="730" y2="196.5" stroke="#d8dee5" stroke-width="1"/>
+<line x1="90" y1="257.8" x2="730" y2="257.8" stroke="#d8dee5" stroke-width="1"/>
+<line x1="90" y1="319.0" x2="730" y2="319.0" stroke="#d8dee5" stroke-width="1"/>
+<line x1="516.7" y1="74" x2="516.7" y2="319" stroke="#68737d" stroke-dasharray="4 4"/>
+<line x1="90" y1="229.9" x2="730" y2="229.9" stroke="#68737d" stroke-dasharray="4 4"/>
+<text x="161.11111111111111" y="339" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">50%</text>
+<text x="338.8888888888889" y="339" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">75%</text>
+<text x="516.6666666666667" y="339" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">100%</text>
+<text x="694.4444444444445" y="339" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">125%</text>
+<text x="80" y="323.0" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">-20%</text>
+<text x="80" y="233.9090909090909" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">0%</text>
+<text x="80" y="144.8181818181818" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">20%</text>
+<circle cx="413.4" cy="227.0" r="18.0" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="434.35134578765894" y="231.003274086635" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">China</text>
+<circle cx="363.3" cy="238.8" r="16.4" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="382.7380476665027" y="242.8193269317493" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">Indonesia</text>
+<circle cx="548.5" cy="196.3" r="13.0" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="564.4803214115486" y="200.29642860921035" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">Malaysia</text>
+<circle cx="593.8" cy="194.6" r="13.0" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="609.7986856572923" y="198.61174204363925" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">Australia</text>
+<circle cx="410.9" cy="226.0" r="12.7" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="426.67290373410134" y="229.97720815036539" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">India</text>
+<circle cx="428.1" cy="260.1" r="10.8" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="441.9008245153141" y="264.082352078771" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">Philippines</text>
+<circle cx="504.5" cy="214.2" r="10.7" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="518.2126260846139" y="218.1639079746885" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">USA</text>
+<circle cx="310.2" cy="187.5" r="10.3" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="323.465130211111" y="191.4970657212747" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">Japan</text>
+<circle cx="492.7" cy="223.9" r="10.1" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="505.8177377943475" y="227.88274541325706" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">United Kingdom</text>
+<circle cx="451.9" cy="235.7" r="10.1" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="464.9750686512988" y="239.70765752325798" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">South Korea</text>
+<circle cx="511.8" cy="208.6" r="9.2" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="523.9225306670729" y="212.58717022974048" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">Taiwan</text>
+<circle cx="325.5" cy="240.1" r="8.9" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="337.4825825025231" y="244.05607053219802" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">Thailand</text>
+<circle cx="471.1" cy="208.4" r="8.7" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><text x="482.8863037349922" y="212.38548370447978" font-family="Arial, sans-serif" font-size="10" font-weight="600" fill="#17202a" text-anchor="start">Germany</text>
+<circle cx="219.2" cy="285.4" r="8.7" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><circle cx="297.0" cy="222.0" r="8.6" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><circle cx="641.5" cy="151.2" r="8.5" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><circle cx="462.7" cy="212.3" r="7.5" fill="#2b8a3e" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/><circle cx="578.9" cy="169.1" r="7.3" fill="#1f77b4" fill-opacity="0.72" stroke="#fff" stroke-width="1.5"/>
+<text x="90" y="351" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="start">Recovery vs 2019 baseline</text>
+<text x="18" y="66" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="start">2025 YoY growth</text>
+</svg>
