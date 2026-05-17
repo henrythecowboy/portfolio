@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 360" role="img">
-  <title>Top source markets chart</title>
+  <title>Top source countries chart</title>
   <rect width="840" height="360" rx="12" fill="#ffffff"/>
-  <text x="36" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#17202a" text-anchor="start">Top source markets: concentration and mix</text>
-<text x="36" y="54" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#68737d" text-anchor="start">Top 10 source markets in 2025 show where growth and concentration risk need active monitoring.</text>
+  <text x="36" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#17202a" text-anchor="start">Top source countries: concentration and mix</text>
+<text x="36" y="54" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#68737d" text-anchor="start">Top 10 source countries in 2025 show where growth and concentration risk need active monitoring.</text>
 <line x1="210.0" y1="62" x2="210.0" y2="320" stroke="#d8dee5" stroke-width="1"/>
 <text x="210.0" y="340" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">0.0m</text>
 <line x1="300.3" y1="62" x2="300.3" y2="320" stroke="#d8dee5" stroke-width="1"/>
@@ -47,5 +47,5 @@
 <text x="36" y="311" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#17202a" text-anchor="start">South Korea</text>
 <rect x="210" y="295" width="106.0" height="17" rx="4" fill="#1f77b4" opacity="0.86"/>
 <text x="324.0355221979868" y="309" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="start">0.59m</text>
-<text x="490.0" y="346" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">2025 international visitor arrivals</text>
+<text x="490.0" y="352" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">2025 international visitor arrivals</text>
 </svg>
