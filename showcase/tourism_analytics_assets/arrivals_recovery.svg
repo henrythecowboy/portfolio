@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 380" role="img">
+  <title>Visitor arrivals recovery chart</title>
+  <rect width="840" height="380" rx="12" fill="#ffffff"/>
+  <text x="36" y="32" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#17202a" text-anchor="start">Singapore visitor arrivals: recovery curve</text>
+<text x="36" y="54" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#68737d" text-anchor="start">Annual arrivals remain close to the 2019 benchmark, with 2025 still below the pre-COVID peak.</text>
+<line x1="72" y1="70.0" x2="792" y2="70.0" stroke="#d8dee5" stroke-width="1"/>
+<line x1="72" y1="135.0" x2="792" y2="135.0" stroke="#d8dee5" stroke-width="1"/>
+<line x1="72" y1="200.0" x2="792" y2="200.0" stroke="#d8dee5" stroke-width="1"/>
+<line x1="72" y1="265.0" x2="792" y2="265.0" stroke="#d8dee5" stroke-width="1"/>
+<line x1="72" y1="330.0" x2="792" y2="330.0" stroke="#d8dee5" stroke-width="1"/>
+<path d="M72.0,145.0 L144.0,130.8 L216.0,118.4 L288.0,105.2 L360.0,97.9 L432.0,296.7 L504.0,326.0 L576.0,253.4 L648.0,164.8 L720.0,129.3 L792.0,124.6" fill="none" stroke="#1f77b4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="72.0" cy="145.0" r="5" fill="#1f77b4"/>
+<text x="72.0" y="135.0306668427743" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#17202a" text-anchor="middle">2015: 15.2m</text>
+<circle cx="360.0" cy="97.9" r="5" fill="#1f77b4"/>
+<text x="360.0" y="87.85714285714289" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#17202a" text-anchor="middle">2019: 19.1m</text>
+<circle cx="432.0" cy="296.7" r="5" fill="#1f77b4"/>
+<text x="432.0" y="286.69606503931425" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#17202a" text-anchor="middle">2020: 2.7m</text>
+<circle cx="792.0" cy="124.6" r="5" fill="#1f77b4"/>
+<text x="792.0" y="114.61895609270411" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#17202a" text-anchor="middle">2025: 16.9m</text>
+<text x="72.0" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">2015</text>
+<text x="216.0" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">2017</text>
+<text x="360.0" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">2019</text>
+<text x="504.0" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">2021</text>
+<text x="648.0" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">2023</text>
+<text x="792.0" y="356" font-family="Arial, sans-serif" font-size="11" font-weight="400" fill="#68737d" text-anchor="middle">2025</text>
+<text x="60" y="334.0" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">0m</text>
+<text x="60" y="273.28053388769473" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">5m</text>
+<text x="60" y="212.56106777538943" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">10m</text>
+<text x="60" y="151.84160166308413" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">15m</text>
+<text x="60" y="91.12213555077886" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="end">20m</text>
+</svg>
