@@ -69,7 +69,7 @@
     <p class="lead">This showcase combines official Singapore tourism and hotel datasets with a transparent synthetic destination operating layer to simulate how a destination operator can monitor visitorship, revenue, guest experience and campaign performance.</p>
     <section class="metrics"><article class="metric"><span>2025 arrivals</span><strong>16.9m</strong></article>
 <article class="metric"><span>Recovery vs 2019</span><strong>88%</strong></article>
-<article class="metric"><span>Top 5 market share</span><strong>55%</strong></article>
+<article class="metric"><span>Top 5 countries market share</span><strong>55%</strong></article>
 <article class="metric"><span>Hotel revenue vs 2019</span><strong>128%</strong></article></section>
 
     <section class="section story">
@@ -103,6 +103,7 @@
     <section class="section">
       <h2>Step 3: Synthetic Destination Layer</h2>
       <p>The destination layer is synthetic by design, because attraction-level revenue, guest satisfaction and campaign ROI are not public. It creates a realistic management view that links public tourism demand to simulated destination operations.</p>
+      <p>This synthetic layer is anchored to official monthly Singapore visitor arrivals and assumes the destination captures 12.5% to 15.5% of inbound demand, with seasonal multipliers of 1.10 in July, August and December, 1.04 in March, June and November, and 0.96 otherwise; tourist mix starts at 48% and rises by up to 13 percentage points in stronger months, tourist spend is modeled at 88 to 112 per visit versus 42 to 58 for locals, campaign spend at 180,000 to 360,000 with a 1.45 peak-period uplift, campaign ROI at 1.8x to 4.4x with a 1.18 peak uplift, and guest experience around an NPS mean of 52 and negative feedback mean of 18%, with crowding pressure reducing NPS and raising complaints above a median-demand threshold.</p>
       <div class="grid">
         <figure><img src="tourism_analytics_assets/destination_dashboard.svg" alt="Synthetic destination dashboard"></figure>
         <figure><img src="tourism_analytics_assets/guest_experience.svg" alt="Synthetic guest experience early-warning chart"></figure>
@@ -118,6 +119,13 @@
 <tr><td>Use recovery gaps as a growth pipeline</td><td>Japan, Germany and Taiwan show positive growth but remain below the 2019 baseline.</td><td>Test tactical campaigns, airline/travel-agent partnerships and event bundles for under-recovered but improving markets.</td><td>Recovery vs 2019, YoY growth, campaign bookings</td></tr>
 <tr><td>Protect experience during peak demand</td><td>Synthetic guest-experience modeling links high visitorship to crowding and transport complaint pressure.</td><td>Pair demand forecasts with transport nudges, crowd-level dashboards, staffing plans and peak-period communication.</td><td>NPS, negative feedback %, crowding/transport complaints</td></tr></tbody>
       </table>
+    </section>
+
+
+    <section class="section story sources">
+      <h2>Reproducible Analysis</h2>
+      <p>The full Python pipeline is kept as a separate source file so the portfolio page stays readable while reviewers can still inspect the methodology, data pulls, synthetic data assumptions and calculation logic.</p>
+      <p><a href="scripts/build_tourism_showcase.py">View Python analysis script</a></p>
     </section>
 
     <section class="section story sources">
