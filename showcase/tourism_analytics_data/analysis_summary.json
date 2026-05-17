@@ -1,0 +1,37 @@
+{
+  "kpis": {
+    "2025 arrivals": "16.9m",
+    "Recovery vs 2019": "88%",
+    "Top 5 market share": "55%",
+    "Hotel revenue vs 2019": "128%"
+  },
+  "latest_annual_receipts": {
+    "year": 2024,
+    "tourism_receipts_m": 29781.0
+  },
+  "insights": [
+    "Singapore recorded 16.9m international visitor arrivals in 2025, reaching 88% of the 2019 baseline.",
+    "Jan-Mar 2026 arrivals reached 94% of the same 2019 period, suggesting demand has broadly normalized but remains uneven by market.",
+    "The top five 2025 source markets account for 55% of arrivals, making source-market concentration an important management lens.",
+    "Hotel room revenue in 2025 reached 128% of 2019, indicating yield recovery has outpaced pure visitor-volume recovery.",
+    "Opportunity screening highlights Japan, Germany, Taiwan as markets worth deeper campaign and partnership review.",
+    "The synthetic destination layer shows how management could connect public demand signals to revenue per visitor, campaign ROI and guest experience monitoring."
+  ],
+  "sources": {
+    "visitor_arrivals_monthly": {
+      "id": "d_d1c33009b674dcf70b8e8c790b793f28",
+      "label": "International Visitor Arrivals by Place of Residence, Monthly",
+      "url": "https://data.gov.sg/datasets/d_d1c33009b674dcf70b8e8c790b793f28/view"
+    },
+    "hotel_statistics_monthly": {
+      "id": "d_8e62605f0c1c948702b6ea0fe45242d3",
+      "label": "Monthly Hotel Statistics",
+      "url": "https://data.gov.sg/datasets/d_8e62605f0c1c948702b6ea0fe45242d3/view"
+    },
+    "tourism_receipts_ytd_quarterly": {
+      "id": "d_248d4c6574b5ac87cd31851ed3f697d6",
+      "label": "Tourism Receipts by Major Components (Year-to-Date), Quarterly",
+      "url": "https://data.gov.sg/datasets/d_248d4c6574b5ac87cd31851ed3f697d6/view"
+    }
+  }
+}
