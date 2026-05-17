@@ -54,6 +54,37 @@
         </div>
 
     </footer>
+    <script>
+      (function () {
+        try {
+          var doc = window.parent && window.parent.document;
+          if (!doc) return;
+          var menu = doc.querySelector('.dropdown-content');
+          if (menu && !menu.querySelector('a[href$="tourism_analytics.html"]')) {
+            var link = doc.createElement('a');
+            var inShowcase = doc.location.pathname.indexOf('/showcase/') !== -1;
+            link.href = inShowcase ? 'tourism_analytics.html' : 'showcase/tourism_analytics.html';
+            link.textContent = 'Python - Tourism Analytics';
+            menu.appendChild(link);
+          }
+          doc.querySelectorAll('.metric span').forEach(function (el) {
+            if (el.textContent.trim().toLowerCase() === 'top 5 market share') {
+              el.textContent = 'Top 5 Countries Market Share';
+            }
+          });
+          var dataSources = Array.prototype.find.call(doc.querySelectorAll('h2'), function (el) {
+            return el.textContent.trim() === 'Data Sources';
+          });
+          if (dataSources && !doc.getElementById('reproducible-analysis')) {
+            var section = doc.createElement('section');
+            section.id = 'reproducible-analysis';
+            section.className = 'section story sources';
+            section.innerHTML = '<h2>Reproducible Analysis</h2><p>The full Python pipeline is kept as a separate source file so the portfolio page stays readable while reviewers can still inspect the methodology, data pulls, synthetic data assumptions and calculation logic.</p><p><a href="scripts/build_tourism_showcase.py">View Python analysis script</a></p>';
+            dataSources.closest('section').parentNode.insertBefore(section, dataSources.closest('section'));
+          }
+        } catch (err) {}
+      })();
+    </script>
     
 <body>
 </html>
