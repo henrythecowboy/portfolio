@@ -4,8 +4,8 @@ from __future__ import annotations
 
 This script combines official Singapore tourism datasets with a transparent
 synthetic destination layer so the portfolio page can illustrate how a
-Sentosa-style operator might connect visitorship, revenue, campaign
-performance, and guest experience.
+Sentosa-style operator might connect visitorship, revenue, campaign ROAS,
+and guest experience.
 
 Public data sources:
 1. International Visitor Arrivals by Place of Residence, Monthly
@@ -18,11 +18,11 @@ Public data sources:
 Synthetic assumptions used in the current showcase:
 - Destination capture rate: 12.5% to 15.5% of monthly inbound arrivals
 - Seasonality: 1.10x in Jul/Aug/Dec, 1.04x in Mar/Jun/Nov, 0.96x otherwise
-- Revenue: tourist visit = 100, local visit = 50
-- Tourist spend split: 30 attractions / 35 F&B / 25 retail / 10 events
-- Local spend split: 10 attractions / 25 F&B / 10 retail / 5 events
-- Campaign spend: 100k to 200k monthly, with 1.25x uplift in selected peak months
-- Campaign ROI: 2.0x to 3.0x
+- Revenue: tourist visit = $100, local visit = $50
+- Tourist spend split: $30 attractions / $35 F&B / $25 retail / $10 events
+- Local spend split: $10 attractions / $25 F&B / $10 retail / $5 events
+- Campaign spend: $100k to $200k monthly, with 1.25x uplift in selected peak months
+- Campaign ROAS: 2.0x to 3.0x
 - NPS baseline: 50, with crowding pressure applied in higher-volume months
 - Negative feedback baseline: 20%, split into transport, crowding,
   service/queueing, and wayfinding/facilities themes
@@ -123,12 +123,16 @@ def make_synthetic_destination(total: pd.DataFrame, countries: pd.DataFrame) -> 
     random.seed(42)
     base = total[(total["date"] >= "2023-01-01") & (total["date"] <= "2026-03-01")].copy().sort_values("date")
     top_markets = countries[countries["year"].eq(2025)].groupby("series")["arrivals"].sum().sort_values(ascending=False).head(6).index.tolist()
+    arrivals_min = base["arrivals"].min()
+    arrivals_max = base["arrivals"].max()
+    crowd_threshold = base["arrivals"].median() * 0.145
     rows = []
     for row in base.itertuples(index=False):
         month = row.date.month
         season = 1.10 if month in [7, 8, 12] else 1.04 if month in [3, 6, 11] else 0.96
         visitors = int(row.arrivals * random.uniform(0.125, 0.155) * season)
-        tourist_share = 0.48 + min(0.13, (row.arrivals - base["arrivals"].min()) / (base["arrivals"].max() - base["arrivals"].min()) * 0.16)
+        strength = 0 if arrivals_max == arrivals_min else (row.arrivals - arrivals_min) / (arrivals_max - arrivals_min)
+        tourist_share = 0.48 + min(0.13, strength * 0.16)
         tourist_visitors = int(visitors * tourist_share)
         local_visitors = visitors - tourist_visitors
         attraction_revenue = tourist_visitors * 30 + local_visitors * 10
@@ -137,12 +141,17 @@ def make_synthetic_destination(total: pd.DataFrame, countries: pd.DataFrame) -> 
         events_revenue = tourist_visitors * 10 + local_visitors * 5
         total_revenue = attraction_revenue + fnb_revenue + retail_revenue + events_revenue
         campaign_spend = random.uniform(100_000, 200_000) * (1.25 if month in [6, 11, 12] else 1.0)
-        campaign_roi = random.uniform(2.0, 3.0)
-        campaign_revenue = campaign_spend * campaign_roi
-        crowd_penalty = max(0, visitors - base["arrivals"].median() * 0.145) / 40_000
+        campaign_roas = random.uniform(2.0, 3.0)
+        campaign_revenue = campaign_spend * campaign_roas
+        crowd_penalty = max(0, visitors - crowd_threshold) / 40_000
         nps = max(35, min(65, random.gauss(50, 3) - crowd_penalty * 3))
         negative_feedback = max(10, min(30, random.gauss(20, 3) + crowd_penalty * 2))
-        weights = [random.uniform(0.26, 0.32), random.uniform(0.22, 0.28), random.uniform(0.18, 0.24), random.uniform(0.16, 0.22)]
+        weights = [
+            random.uniform(0.26, 0.32),
+            random.uniform(0.22, 0.28),
+            random.uniform(0.18, 0.24),
+            random.uniform(0.16, 0.22),
+        ]
         weight_total = sum(weights)
         rows.append({
             "date": row.date,
@@ -158,7 +167,7 @@ def make_synthetic_destination(total: pd.DataFrame, countries: pd.DataFrame) -> 
             "revenue_per_visitor": total_revenue / visitors,
             "campaign_spend": campaign_spend,
             "campaign_revenue": campaign_revenue,
-            "campaign_roi": campaign_roi,
+            "campaign_roas": campaign_roas,
             "nps": nps,
             "negative_feedback_pct": negative_feedback,
             "transport_complaints_pct": negative_feedback * weights[0] / weight_total,
@@ -197,10 +206,10 @@ def main() -> None:
         },
         "sources": DATASETS,
         "synthetic_assumptions": {
-            "tourist_visit_value": 100,
-            "local_visit_value": 50,
-            "campaign_spend_range": "100k-200k",
-            "campaign_roi_range": "2.0x-3.0x",
+            "tourist_visit_value": "$100",
+            "local_visit_value": "$50",
+            "campaign_spend_range": "$100k-$200k",
+            "campaign_roas_range": "2.0x-3.0x",
             "nps_baseline": 50,
             "negative_feedback_baseline": "20%",
         },
