@@ -23,8 +23,8 @@
 <text x="794" y="193.0" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">20%</text>
 <text x="794" y="135.5" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">30%</text>
 <text x="794" y="78.0" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">40%</text>
-<text x="24" y="66" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">NPS</text>
-<text x="794" y="66" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">Negative feedback %</text>
+<text x="24" y="189" transform="rotate(-90 24 189)" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">NPS</text>
+<text x="824" y="189" transform="rotate(-90 824 189)" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Negative feedback %</text>
 <text x="62.0" y="326" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Apr</text>
 <text x="258.1676646706587" y="326" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Jul</text>
 <text x="456.49101796407183" y="326" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="middle">Oct</text>
