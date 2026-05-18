@@ -37,8 +37,8 @@
 <rect x="142.3642957737291" y="382" width="71.6" height="16" rx="4" fill="#6f4dbf" opacity="0.84"/>
 <text x="142.3642957737291" y="412" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">Crowding 6.0 pts</text>
 <rect x="221.9317879408449" y="382" width="60.4" height="16" rx="4" fill="#1f77b4" opacity="0.84"/>
-<text x="221.9317879408449" y="412" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">Service / queueing 5.0 pts</text>
+<text x="221.9317879408449" y="412" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">Service 5.0 pts</text>
 <rect x="290.3366898284853" y="382" width="53.6" height="16" rx="4" fill="#68737d" opacity="0.84"/>
-<text x="290.3366898284853" y="412" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">Wayfinding / facilities 4.5 pts</text>
+<text x="290.3366898284853" y="412" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">Wayfinding 4.4 pts</text>
 <text x="52" y="428" font-family="Arial, sans-serif" font-size="10" font-weight="400" fill="#68737d" text-anchor="start">Displayed period averages: NPS 50.2, negative feedback 22.3%.</text>
 </svg>
