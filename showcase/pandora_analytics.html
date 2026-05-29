@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python - Retail Analytics</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+  #header { top: 0; width: 100%; margin: 0; background: url(images/logo2.png) no-repeat; height: 45vh; left: 0; margin-left: 0; }
+  #footer { top: 0; bottom: 0; width: 100%; margin: 0; max-height: 50px; left: 0; margin-left: 0; }
+  #turquoise { color: turquoise; font-size: 2rem; font-family: Lobster; }
+  .container { padding: 10px; display: flex; justify-content: space-evenly; }
+  .dropdown { position: relative; display: inline-block; }
+  .dropdown-content { display: none; position: absolute; background-color: lightgrey; min-width: 260px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1; }
+  .dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; }
+  .dropdown-content a:hover { background-color: turquoise; }
+  .dropdown:hover .dropdown-content { display: block; }
+
+  :root {
+    --ink:#17202a;
+    --muted:#68737d;
+    --line:#d8dee5;
+    --bg:#f7f9fb;
+    --panel:#ffffff;
+    --teal:#129c9a;
+    --blue:#1f77b4;
+    --gold:#b4874b;
+    --green:#3f7d5a;
+    --red:#b45a5f;
+    --soft:#edf2f7;
+  }
+
+  body { margin:0; font-family:Arial, sans-serif; color:var(--ink); background:var(--bg); }
+  main { width:min(1120px, calc(100% - 32px)); margin:0 auto; padding:38px 0 54px; }
+  .eyebrow { color:var(--teal); font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
+  h1 { font-size:38px; line-height:1.08; margin:10px 0 12px; max-width:920px; }
+  h2 { font-size:23px; margin:20px 0 8px; }
+  h3 { margin:0 0 10px; font-size:18px; }
+  p, li { line-height:1.55; }
+  .lead { max-width:none; color:var(--muted); font-size:17px; line-height:1.5; text-align:justify; }
+  .thesis { margin:22px 0 0; background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--teal); border-radius:8px; padding:18px 20px; font-size:20px; font-weight:700; line-height:1.45; }
+  .metrics { display:grid; grid-template-columns:repeat(3, minmax(210px, 1fr)); gap:12px; margin:28px 0; }
+  .metric { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; }
+  .metric span { color:var(--muted); font-size:12px; font-weight:700; text-transform:uppercase; }
+  .metric strong { display:block; margin-top:8px; font-size:26px; color:var(--teal); }
+  .section { margin-top:24px; padding-top:10px; border-top:1px solid var(--line); }
+  .story { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px 22px; }
+  .context-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; margin-top:16px; }
+  .context-card { background:var(--soft); border-radius:8px; padding:14px; }
+  .context-card p { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .context-card ul { margin:0; padding-left:18px; color:var(--muted); font-size:14px; }
+  .context-card li { margin:0 0 8px; }
+  .context-card li:last-child { margin-bottom:0; }
+  .positioning-note { margin-top:16px; color:var(--muted); font-size:14px; }
+  .question-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+  .q-card, .forecast-card, .plan-card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px; }
+  .q-card p { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .label { color:var(--teal); font-size:12px; font-weight:700; text-transform:uppercase; }
+  .visual { margin-top:14px; border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfdfe; }
+  .visual-title { margin:0 0 12px; color:var(--ink); font-size:13px; font-weight:700; }
+  .bar-row { display:grid; grid-template-columns:112px minmax(0, 1fr) 74px; gap:10px; align-items:center; margin:8px 0; color:var(--muted); font-size:12px; }
+  .track { height:10px; overflow:hidden; border-radius:99px; background:#e2e9ef; }
+  .fill { height:100%; border-radius:99px; background:var(--teal); }
+  .fill.gold { background:var(--gold); }
+  .fill.green { background:var(--green); }
+  .fill.red { background:var(--red); }
+  .mini-grid { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:8px; margin-top:12px; }
+  .mini-box { border-radius:8px; padding:10px; background:var(--soft); }
+  .mini-box strong { display:block; color:var(--teal); font-size:19px; line-height:1; }
+  .mini-box span { display:block; margin-top:6px; color:var(--muted); font-size:11px; }
+  .stack { display:flex; height:28px; overflow:hidden; border-radius:8px; background:#e2e9ef; }
+  .stack span { display:grid; place-items:center; color:#fff; font-size:11px; font-weight:700; }
+  .timeline { display:grid; grid-template-columns:repeat(5, 1fr); gap:7px; align-items:end; min-height:130px; }
+  .timeline div { display:grid; align-content:end; gap:6px; color:var(--muted); font-size:11px; text-align:center; }
+  .timeline b { display:grid; place-items:center; border-radius:8px 8px 4px 4px; background:var(--teal); color:#fff; font-size:12px; }
+  .flow { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:8px; }
+  .flow-step { border-radius:8px; padding:10px; background:var(--soft); color:var(--muted); font-size:11px; }
+  .flow-step strong { display:block; color:var(--teal); font-size:18px; }
+  .forecast-grid, .plan { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:16px; margin-top:16px; }
+  .forecast-grid { grid-template-columns:0.9fr 1.1fr; }
+  code.formula { display:block; margin:12px 0; border-radius:8px; padding:14px; background:var(--soft); color:var(--ink); font-family:Consolas, "Courier New", monospace; font-size:14px; line-height:1.55; white-space:normal; }
+  table { width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-top:12px; }
+  th, td { text-align:left; vertical-align:top; padding:12px; border-bottom:1px solid var(--line); font-size:14px; line-height:1.45; }
+  th { background:#edf2f7; font-size:12px; text-transform:uppercase; color:var(--muted); }
+  tr:last-child td { border-bottom:0; }
+  .calc-total { margin-top:12px; border-radius:8px; padding:14px; background:var(--teal); color:#fff; font-weight:700; }
+  .plan-card { border-top:5px solid var(--teal); }
+  .plan-card:nth-child(2) { border-top-color:var(--gold); }
+  .plan-card:nth-child(3) { border-top-color:var(--green); }
+  .sources a { color:var(--blue); }
+  .sources { color:var(--muted); font-size:12px; }
+  @media (max-width: 860px) {
+    h1 { font-size:30px; }
+    .metrics, .context-grid, .question-grid, .forecast-grid, .plan { grid-template-columns:1fr; }
+    .bar-row, .flow { grid-template-columns:1fr; }
+    .mini-grid { grid-template-columns:repeat(2, minmax(0, 1fr)); }
+    #turquoise { font-size:1.35rem; }
+    .container { gap:12px; flex-wrap:wrap; }
+  }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Libre+Baskerville&family=Lobster&family=Roboto:ital@1&display=swap" rel="stylesheet">
+</head>
+<body>
+  <object data="header.html" id="header"></object>
+  <hr color="turquoise" size="5">
+  <div class="container">
+    <a href="../index.html" id="turquoise" style="text-decoration:none">About Me</a>
+    <div class="dropdown">
+      <a id="turquoise" style="text-decoration:none">Showcase</a>
+      <div class="dropdown-content">
+          <a href="dashboarding.html">Tableau - Dashboarding</a>
+          <a href="storyboarding.html">Tableau - Storyboarding</a>
+          <a href="forecasting_arima.html">Python - ARIMA Forecasting</a>
+          <a href="EDA.html">Python - Exploratory Data Analysis</a>
+          <a href="SQL.html">SQL</a>
+          <a href="tourism_analytics.html">Python - Tourism Analytics</a>
+          <a href="pandora_analytics.html">Python - Retail Analytics</a>
+      </div>
+    </div>
+    <a href="../shop.html" id="turquoise" style="text-decoration:none">Shop</a>
+  </div>
+  <hr color="turquoise" size="5">
+
+  <main>
+    <div class="eyebrow">Portfolio Case Study</div>
+    <h1>Economics &amp; Performance Drivers for Pandora</h1>
+    <section class="section story">
+      <h2>Luxury Jewellery Market</h2>
+      <p class="lead">The luxury jewellery market is expected to remain resilient despite geopolitical uncertainty. While the current macro landscape and high commodity prices remain headwinds, growth opportunities remain in Asia, supported by stronger regional demand and interest in customisable designs (<a href="https://www.bain.com/about/media-center/press-releases/20252/global-luxury-stays-resilient-despite-economic-headwinds-and-shifting-consumer-trends-that-reshape-marketbain--company-and-altagamma/">Bain</a>).</p>
+
+      <div class="context-grid">
+        <article class="context-card">
+          <h3>Obstacles / headwinds</h3>
+          <ul>
+            <li>Bain: personal luxury goods were broadly stable in 2025, but the market still faced disruption and a possible 2% to 5% contraction scenario.</li>
+            <li>World Gold Council: high gold prices reduced jewellery volumes, even as spend by value hit a record.</li>
+            <li>Pandora: tariffs, commodities, FX and geopolitical uncertainty are real margin pressures.</li>
+          </ul>
+        </article>
+
+        <article class="context-card">
+          <h3>Growth opportunities</h3>
+          <ul>
+            <li>Bain: jewellery was one of the stronger luxury categories in 2025, with expected growth of 4% to 6%.</li>
+            <li>Pandora: Asia-Pacific LFL growth was 12% in Q1 2026, showing the region is still a live growth engine.</li>
+            <li>Product opportunity: stronger regional demand and interest in customisable designs.</li>
+          </ul>
+        </article>
+
+        <article class="context-card">
+          <h3>Industry peers</h3>
+          <ul>
+            <li><strong>Swarovski:</strong> closest branded accessible-luxury comparison for gifting, self-purchase, and mall-based jewellery traffic.</li>
+            <li><strong>Chow Tai Fook:</strong> direct Asia retail-scale benchmark, especially for Greater China traffic and jewellery demand.</li>
+            <li><strong>Cartier, Tiffany &amp; Co., Bulgari:</strong> considered as price-tier and brand benchmarks rather than direct like-for-like competitors.</li>
+          </ul>
+        </article>
+      </div>
+
+      <table>
+        <thead><tr><th>Company / brands</th><th>Scale / stores</th><th>Why it matters</th></tr></thead>
+        <tbody>
+          <tr><td>Swarovski</td><td>2024 revenue EUR 1.906bn; Asia growth +3%; 2,300 boutiques globally in 140 countries.</td><td>Closest branded accessible-luxury peer for gifting, self-purchase and broad mall-based traffic.</td></tr>
+          <tr><td>Chow Tai Fook</td><td>FY2025 revenue HK$89.7bn; 6,274 Mainland China POS; Hong Kong and Macau network at 87 POS.</td><td>Most relevant Asia retail-scale benchmark, especially for Greater China traffic and jewellery demand.</td></tr>
+          <tr><td>Cartier / Tiffany / Bulgari</td><td>Richemont Jewellery Maisons FY2025 revenue EUR 15.3bn; LVMH Watches &amp; Jewellery 2025 revenue EUR 10.5bn.</td><td>Useful as price-tier and brand benchmarks, but not considered as direct like-for-like competitors.</td></tr>
+        </tbody>
+      </table>
+
+    </section>
+
+    <div class="thesis">
+      "For a jewellery retailer like Pandora, I would not only look at what sold, but whether it sold profitably, how long it sat in inventory, whether it brought in a repeat customer, and whether the sale tells us something about future buying or marketing decisions."
+    </div>
+
+    <section class="metrics">
+      <article class="metric"><span>Market scope</span><strong>5 markets</strong><p>Singapore, Japan, Hong Kong, Macau, and Taiwan.</p></article>
+      <article class="metric"><span>Pandora Q1 2026 APAC momentum</span><strong>+12% LFL<sup>1</sup></strong><p>Asia-Pacific like-for-like growth.</p></article>
+      <article class="metric"><span>APAC concept stores</span><strong>476<sup>2</sup></strong><p>Asia Pacific concept stores at Q4 2025.</p></article>
+    </section>
+
+    <section class="section story">
+      <h2>1. Management Questions</h2>
+      <div class="question-grid">
+        <article class="q-card">
+          <h3>Sales Management Questions</h3>
+          <p><span class="label">Questions</span> Which collections, price bands, metals, charms, rings, and gifting sets drive revenue, margin, and repeat purchase?</p>
+          <p><span class="label">How I derive it</span> POS sales + product hierarchy + gross margin + discount + return data, summarized by SKU/category/store/market.</p>
+          <p><span class="label">ACTIONABLE INSIGHT Eg.</span> Japan sales are up 9%, but 60% of the growth comes from high-margin charms and bracelets, while discounted rings add volume but dilute margin by 2 percentage points.</p>
+          <div class="visual">
+            <p class="visual-title">Sample Japan growth mix by category</p>
+            <div class="stack">
+              <span style="width:36%; background:#129c9a;">Charms 36%</span>
+              <span style="width:24%; background:#3f7d5a;">Bracelets 24%</span>
+              <span style="width:22%; background:#b4874b;">Rings 22%</span>
+              <span style="width:18%; background:#68737d;">Other 18%</span>
+            </div>
+            <div class="mini-grid">
+              <div class="mini-box"><strong>+9%</strong><span>LFL sales</span></div>
+              <div class="mini-box"><strong>60%</strong><span>Growth from charms + bracelets</span></div>
+              <div class="mini-box"><strong>-2pts</strong><span>Ring discount margin dilution</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="q-card">
+          <h3>2. Who are the best customers?</h3>
+          <p><span class="label">Questions</span> Are sales coming from first-time buyers, repeat customers, gift buyers, bridal buyers, tourists, or promotion-only buyers?</p>
+          <p><span class="label">How I derive it</span> Customer ID, transaction history, recency/frequency/value, product basket, and channel data.</p>
+          <p><span class="label">ACTIONABLE INSIGHT Eg.</span> Taiwan's repeat customers buy less frequently than Japan, but have a 15% higher basket when campaigns feature gifting bundles.</p>
+        </article>
+
+        <article class="q-card">
+          <h3>3. What inventory should be bought, moved, marked down, or stopped?</h3>
+          <p><span class="label">Questions</span> Which items are fast-moving, out of stock, aged, or in the wrong store? Are ring sizes and core SKUs available where demand exists?</p>
+          <p><span class="label">How I derive it</span> Inventory on hand, weeks of cover, sell-through, stockout days, aged inventory, store transfer history, and size availability.</p>
+          <p><span class="label">ACTIONABLE INSIGHT Eg.</span> Hong Kong Store A missed 6% sales upside because core availability was 92% and five ring sizes were repeatedly out of stock during weekend peak trading.</p>
+        </article>
+
+        <article class="q-card">
+          <h3>4. Which stores, channels, and teams perform best?</h3>
+          <p><span class="label">Questions</span> Which stores beat comparable peers? Which stores depend too much on discount? Which sales teams convert traffic into higher basket value?</p>
+          <p><span class="label">How I derive it</span> Store sales, traffic, conversion, average transaction value, units per transaction (UPT), sales per staff hour, rent/store type, mall cluster, and store maturity.</p>
+          <p><span class="label">ACTIONABLE INSIGHT Eg.</span> Singapore Store B has flat sales, but sales per staff hour is 11% above peer stores; the issue is traffic, not team productivity.</p>
+        </article>
+
+        <article class="q-card">
+          <h3>5. What promotions create real sales uplift?</h3>
+          <p><span class="label">Questions</span> Did a campaign bring incremental demand, or just shift purchases forward? Did margin fall faster than volume grew?</p>
+          <p><span class="label">How I derive it</span> Promo calendar, pre/post sales, control stores, gross margin, customer acquisition, repeat behavior, and cannibalization checks.</p>
+          <p><span class="label">ACTIONABLE INSIGHT Eg.</span> A 14% campaign sales increase becomes only 6% true uplift after adjusting for holiday timing and pull-forward, with 2 percentage points of margin dilution.</p>
+          <div class="visual">
+            <p class="visual-title">Sample campaign uplift bridge</p>
+            <div class="bar-row"><span>Reported sales</span><div class="track"><div class="fill green" style="width:86%"></div></div><strong>+14%</strong></div>
+            <div class="bar-row"><span>Holiday timing</span><div class="track"><div class="fill gold" style="width:31%"></div></div><strong>-5pts</strong></div>
+            <div class="bar-row"><span>Pull-forward</span><div class="track"><div class="fill gold" style="width:19%"></div></div><strong>-3pts</strong></div>
+            <div class="bar-row"><span>True uplift</span><div class="track"><div class="fill" style="width:38%"></div></div><strong>+6%</strong></div>
+            <div class="mini-grid">
+              <div class="mini-box"><strong>-2pts</strong><span>Margin dilution</span></div>
+              <div class="mini-box"><strong>+3%</strong><span>New customers</span></div>
+              <div class="mini-box"><strong>Control</strong><span>Compare similar stores</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="q-card">
+          <h3>6. How should we plan for seasonality and occasions?</h3>
+          <p><span class="label">Questions</span> What should each market stock before Valentine's Day, Mother's Day, Golden Week, Lunar New Year, Christmas, and local pay cycles?</p>
+          <p><span class="label">How I derive it</span> Historical daily sales, market calendar, tourist flow, campaign timing, product mix, and stock availability by week.</p>
+          <p><span class="label">ACTIONABLE INSIGHT Eg.</span> Macau should forecast by visitor-flow days, while Japan needs earlier stock positioning before Golden Week and Mother's Day gifting weeks.</p>
+          <div class="visual">
+            <p class="visual-title">Sample event index vs normal trading day</p>
+            <div class="timeline">
+              <div><b style="height:48px;">1.00x</b><span>Normal</span></div>
+              <div><b style="height:62px; background:#b4874b;">1.15x</b><span>Pay week</span></div>
+              <div><b style="height:72px; background:#3f7d5a;">1.25x</b><span>Golden Week</span></div>
+              <div><b style="height:78px;">1.35x</b><span>Mother's Day</span></div>
+              <div><b style="height:88px; background:#3f7d5a;">1.50x</b><span>Christmas</span></div>
+            </div>
+            <div class="mini-grid">
+              <div class="mini-box"><strong>Japan</strong><span>Stock earlier for gifting</span></div>
+              <div class="mini-box"><strong>Macau</strong><span>Use visitor-flow days</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="q-card">
+          <h3>7. Where does the customer journey lose conversion?</h3>
+          <p><span class="label">Questions</span> Are customers browsing but not buying? Does appointment booking, online research, or in-store service drive conversion to sales?</p>
+          <p><span class="label">How I derive it</span> Digital traffic, store traffic, appointment data, conversion rate, basket, CRM follow-up, and online-to-store indicators where available.</p>
+          <p><span class="label">ACTIONABLE INSIGHT Eg.</span> Hong Kong tourist-heavy stores may need product availability and fast gifting conversion; local stores may need clienteling and repeat purchase follow-up.</p>
+          <div class="visual">
+            <p class="visual-title">Sample journey conversion funnel</p>
+            <div class="flow">
+              <div class="flow-step"><strong>1,000</strong>Product views</div>
+              <div class="flow-step"><strong>220</strong>Store visits / appointments</div>
+              <div class="flow-step"><strong>88</strong>Transactions</div>
+              <div class="flow-step"><strong>27</strong>Repeat follow-ups</div>
+            </div>
+            <div class="mini-grid">
+              <div class="mini-box"><strong>40%</strong><span>Transactions-to-Store Visits Ratio</span></div>
+              <div class="mini-box"><strong>Tourist</strong><span>Fast gifting path</span></div>
+              <div class="mini-box"><strong>Local</strong><span>Clienteling path</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section story">
+      <h2>2. Sample Forecasting Methodology</h2>
+      <p class="lead">I would keep the forecast simple enough for country teams to challenge, but rigorous enough to explain daily store revenue. The method is a store-level time-series forecast with commercial adjustments for weekday pattern, seasonality, campaigns, and stock availability.</p>
+      <div class="forecast-grid">
+        <article class="forecast-card">
+          <h3>Plain-English method</h3>
+          <ul>
+            <li>Start with a store's normal daily sales baseline.</li>
+            <li>Apply day-of-week and occasion factors using historical sales.</li>
+            <li>Add planned campaign uplift from prior campaign performance.</li>
+            <li>Reduce the forecast when core stock availability is below target.</li>
+            <li>Track weighted absolute percentage error (WAPE) and bias after actuals land.</li>
+          </ul>
+          <code class="formula">Daily store forecast = baseline daily sales x day-of-week index x occasion/seasonality index x campaign uplift x stock availability factor</code>
+        </article>
+        <article class="forecast-card">
+          <h3>Worked example: Japan store, Saturday in Mother's Day campaign week</h3>
+          <table>
+            <thead><tr><th>Input</th><th>Sample value</th><th>Meaning</th></tr></thead>
+            <tbody>
+              <tr><td>Baseline daily sales</td><td>DKK 100,000</td><td>Normal sales after excluding major events and stockout days.</td></tr>
+              <tr><td>Day-of-week index</td><td>1.35</td><td>Saturday usually sells 35% above an average trading day.</td></tr>
+              <tr><td>Occasion index</td><td>1.20</td><td>Mother's Day week historically creates 20% higher gifting demand.</td></tr>
+              <tr><td>Campaign uplift</td><td>1.08</td><td>Planned local campaign is expected to add 8%.</td></tr>
+              <tr><td>Stock availability</td><td>0.95</td><td>Core availability is 95%, so I reduce for lost sales risk.</td></tr>
+            </tbody>
+          </table>
+          <div class="calc-total">Forecast = 100,000 x 1.35 x 1.20 x 1.08 x 0.95 = DKK 166,212</div>
+        </article>
+      </div>
+      <table>
+        <thead><tr><th>Market</th><th>Sample monthly forecast</th><th>Key forecast driver</th><th>Management action</th></tr></thead>
+        <tbody>
+          <tr><td>Japan</td><td>DKK 42.0m, +7% to +11%</td><td>Occasion demand, conversion, and product newness.</td><td>Protect stock for bestsellers and size-sensitive products before campaign weeks.</td></tr>
+          <tr><td>Taiwan</td><td>DKK 18.4m, +3% to +6%</td><td>Basket mix and gifting bundles.</td><td>Track attachment rate and repeat-customer response by store team.</td></tr>
+          <tr><td>Singapore</td><td>DKK 15.7m, 0% to +3%</td><td>High-rent store productivity and traffic.</td><td>Review sales per staff hour, conversion, and tourist/resident mix.</td></tr>
+          <tr><td>Hong Kong</td><td>DKK 21.1m, -2% to +2%</td><td>Tourist/local split and stock availability.</td><td>Cluster stores before comparing performance; fix stock gaps before discounting.</td></tr>
+          <tr><td>Macau</td><td>DKK 8.6m, +2% to +8%</td><td>Visitor-flow volatility and event calendar.</td><td>Use event-calendar factors instead of a flat monthly run-rate.</td></tr>
+        </tbody>
+      </table>
+      <p class="lead">The market values above are illustrative samples to demonstrate the method and decision logic, not actual Pandora internal numbers.</p>
+    </section>
+
+    <section class="section story">
+      <h2>3. First 90 Days Plan</h2>
+      <p class="lead">My first 90 days would be to DEFINE the management/business questions, map the source data required to BUILD and test the data models before I progress to OPERATIONALISE &amp; AUTOMATE the generation of necessary business insights.</p>
+      <div class="plan">
+        <article class="plan-card">
+          <h3>Days 1-30: Define</h3>
+          <ul>
+            <li>Map POS, inventory, product, discount, CRM, campaign, traffic, staffing, and store master data.</li>
+            <li>Build one KPI dictionary for sales, margin, sell-through, stockout, average transaction value (ATV), units per transaction (UPT), conversion, repeat rate, and promotion uplift.</li>
+            <li>Confirm with each country team which sales management questions matter most in weekly business reviews.</li>
+          </ul>
+        </article>
+        <article class="plan-card">
+          <h3>Days 31-60: Build</h3>
+          <ul>
+            <li>Create the business data question pack with data insights localised for each market.</li>
+            <li>Prototype the daily store forecast using baseline, day-of-week, seasonality, campaign, and stock factors.</li>
+            <li>Back-test forecast accuracy and identify where bias comes from: stockouts, promotions, holidays, or store anomalies.</li>
+          </ul>
+        </article>
+        <article class="plan-card">
+          <h3>Days 61-90: Operationalise &amp; Automate</h3>
+          <ul>
+            <li>Automate the data insights pack in weekly business reviews with Retail Operations, Sales Management, eCommerce, Merchandising, Finance, and Marketing.</li>
+            <li>Create a tracker for stock transfers, promo decisions, underperforming stores, to track variance from forecast and continuously fine-tune based on deviations.</li>
+            <li>Report what changed: forecast accuracy, aged inventory, stock availability, margin mix, campaign ROI, and repeat behavior.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section story sources">
+      <h2>Sources</h2>
+      <p>1. <a href="https://www.pandoragroup.com/news/27926">Pandora Q1 2026 company announcement</a>: Asia-Pacific LFL growth was 12%; Pandora also cited external headwinds from tariffs, commodities and foreign exchange, plus elevated economic and geopolitical uncertainty.</p>
+      <p>2. Pandora's <a href="https://www.pandoragroup.com/assetcontent?url=https%3A%2F%2Fclientapi.gcs-web.com%2Fdata%2F549db3ad-76fd-4588-a083-03d65705209f%2Fassets%2F27771">Q4 2025 investor presentation</a>: 476 Asia Pacific concept stores.</p>
+      <p>3. <a href="https://www.bain.com/insights/luxury-is-ready-for-a-new-era-after-stabilizing-in-2025-snap-chart/">Bain &amp; Company Luxury Study 2025</a> and <a href="https://www.bain.com/about/media-center/press-releases/20252/global-luxury-stays-resilient-despite-economic-headwinds-and-shifting-consumer-trends-that-reshape-marketbain--company-and-altagamma/">Bain November 2025 update</a>: personal luxury goods broadly stabilized in 2025, while jewellery was one of the stronger categories with expected growth of 4% to 6%.</p>
+      <p>4. <a href="https://www.gold.org/goldhub/research/gold-demand-trends/gold-demand-trends-full-year-2025/jewellery">World Gold Council Gold Demand Trends 2025</a>: record gold prices created affordability pressure, reducing jewellery volumes even as demand value hit a record.</p>
+      <p>5. <a href="https://asset.swarovski.com/raw/upload/v1742459178/Press_Release_2024_Results_FINAL_250320.pdf">Swarovski 2024 results press release</a>: 2024 revenue was EUR 1,906m, jewellery organic growth was 9%, Asia growth was 3%, and Swarovski had 2,300 boutiques in around 140 countries. APAC revenue and APAC store count were not separately disclosed.</p>
+      <p>6. <a href="https://www.ctfjewellerygroup.com/en/media/news/detail.html?id=1267">Chow Tai Fook FY2025 results</a> and <a href="https://www.hkexnews.hk/listedco/listconews/sehk/2025/0613/2025061300756.pdf">HKEX annual report filing</a>: FY2025 revenue was HK$89,656m, the group operated 6,274 Chow Tai Fook Jewellery POS in Mainland China, and the Hong Kong and Macau retail network was maintained at 87 POS.</p>
+      <p>7. <a href="https://www.richemont.com/news-media/press-releases-news/richemont-posts-robust-performance-for-the-year-ended-31-march-2025/">Richemont FY2025 results</a>: Jewellery Maisons sales reached EUR 15.3bn.</p>
+      <p>8. <a href="https://www.lvmh.com/our-maisons/watches-jewelry">LVMH Watches &amp; Jewellery</a>: revenue was EUR 10,486m in 2025 across nine maisons.</p>
+    </section>
+  </main>
+
+  <hr>
+  <object data="footer.html" id="footer"></object>
+</body>
+</html>
